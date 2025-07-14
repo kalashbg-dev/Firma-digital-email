@@ -1,88 +1,209 @@
-/* Estilos generales para el cuerpo del documento */
-.body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #534F4F;
+:root {
+  --primary-blue: hsl(215, 83.2%, 50.8%);
+  --primary-accent: hsl(260, 70%, 65%);
+  --text-primary: hsl(222.2, 84%, 4.9%);
+  --text-secondary: hsl(215.4, 16.3%, 46.9%);
+  --background-card: hsl(0, 0%, 100%);
+  --border-subtle: hsl(214.3, 20%, 90%);
+  --gradient-primary: linear-gradient(135deg, hsl(215, 83.2%, 50.8%) 0%, hsl(260, 70%, 65%) 100%);
+  --shadow-soft: 0 4px 20px hsla(215, 83%, 51%, 0.15);
+  --shadow-card: 0 2px 12px hsla(0, 0%, 0%, 0.08);
+  --social-icon-color: hsl(215, 83.2%, 50.8%);
+  --social-icon-hover: hsl(260, 70%, 65%);
+}
+
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* Estilos para el contenedor principal del perfil */
-.perfil {
-  display: flex;
-  padding: 6px;
+.email-signature {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  max-width: 600px;
+  background: var(--background-card);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
 }
 
-.foto {
-  padding-right: 6px; 
-  margin: 0;
+.signature-content {
+  display: grid;
+  grid-template-columns: auto 4px 1fr;
+  gap: 20px;
+  align-items: start;
+  position: relative;
+  z-index: 2;
 }
 
-/* Estilos para la línea separadora */
-.separador {
-  background-color: #008b4a;
-  width: 3px;
-  height: 210px;
-  margin: 0 12px;
-  
-}
-
-/* Ajuste de márgenes y rellenos para las clases de texto */
-.nombre, .rol, .contacto, .seguir {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #534F4F;
-  margin: 0; /* Márgenes ajustados a 0 */
-  padding: 0; /* Rellenos ajustados a 0 */
-}
-
-/* Estilos para el nombre */
-.nombre {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-/* Estilos para el rol */
-.rol {
-  font-size: 18px;
-
-}
-
-/* Estilos para la sección de contacto y seguir */
-.contacto .seguir {
-  font-size: 17px;
-}
-
-/* Estilos para los enlaces en la sección de contacto */
-.contacto a {
-  color: #0F87ED;
-  text-decoration: none;
-}
-
-/* Estilos para los enlaces al pasar el cursor */
-.contacto a:hover {
-  text-decoration: underline;
-  color:#534F4F
-}
-
-/* Estilos para los iconos de redes sociales */
-.icono-red {
-  width: 30px;
-  height: 30px;
-}
-
-/* Estilos para la información de contacto */
-.contacto-info {
+.profile-section {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  align-items: center;
+  gap: 12px;
 }
 
-/* Estilos para el pie de página */
-footer {
-  padding-top: 4px;
-}
-
-/* Estilos para la imagen de perfil */
-img {
+.profile-image {
   width: 200px;
   height: 200px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 3px solid var(--primary-blue);
+  box-shadow: var(--shadow-soft);
+}
+
+.divider {
+  width: 4px;
+  height: 200px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+  box-shadow: 0 2px 8px hsla(215, 83%, 51%, 0.3);
+}
+
+.info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.name-title {
+  border-bottom: 2px solid var(--border-subtle);
+  padding-bottom: 12px;
+}
+
+.name {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+
+.title {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: var(--text-primary);
+}
+
+.contact-icon {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+.contact-link {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+  color: var(--primary-accent);
+  text-decoration: underline;
+}
+
+.social-section h3 {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--social-icon-color);
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px hsla(215, 83%, 51%, 0.2);
+}
+
+.social-link:hover {
+  background: var(--social-icon-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px hsla(260, 70%, 65%, 0.3);
+}
+
+.social-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.bottom-decoration {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-primary);
+  opacity: 0.8;
+}
+
+.disclaimer {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .signature-content {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      text-align: center;
+  }
+  
+  .divider {
+      display: none;
+  }
+  
+  .profile-section {
+      order: 1;
+  }
+  
+  .info-section {
+      order: 2;
+  }
+  
+  .social-links {
+      justify-content: center;
+  }
 }
